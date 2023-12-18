@@ -12,26 +12,6 @@ To utilize this playbook effectively, ensure the following prerequisites are met
 - You have SSH access to all target nodes, the machines destined for the AI environment setup.
 - You possess adequate permissions for installing packages and performing system modifications on the target nodes.
 
-## Configuration
-
-This playbook is designed with flexibility in mind, using variables that can be tailored to your specific requirements:
-
-- `workspace_path`: Defines the path for creating the workspace directory.
-- `conda_installer_url`: URL for downloading the Miniconda installer.
-- `conda_env_file`: Local path of the Conda environment file.
-- `remote_conda_env_file`: Destination path on the remote node for the Conda environment file.
-- `conda_path`: The installation path for Miniconda.
-
-## Running the Playbook
-
-Execute the playbook by following these steps:
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/YOUR_GITHUB/YOUR_REPOSITORY.git
-   cd YOUR_REPOSITORY
-   ```
-
 
 ## Configuration
 
@@ -53,6 +33,7 @@ To run the playbook, follow these steps:
    git clone https://github.com/YOUR_GITHUB/YOUR_REPOSITORY.git
    cd YOUR_REPOSITORY
    ```
+   
 Customize the variables in setup-general.yml as needed.
 Run the playbook:
 ```bash
