@@ -37,7 +37,7 @@ To run the playbook, follow these steps:
 Customize the variables in setup-general.yml as needed.
 Run the playbook:
 ```bash
-ansible-playbook -i hosts.ini setup-general.yml 
+ansible-playbook -i hosts.ini setup-general.yml -vv
 ```
 
 ## Components Installed

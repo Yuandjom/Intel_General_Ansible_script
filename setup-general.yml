@@ -135,6 +135,13 @@
             chdir: "/tmp/gperftools-2.7.90"
             target: install
 
+    - name: Install 'transformers' package via Conda
+      become: yes
+      shell: /opt/miniconda3/bin/conda install -n Intel_AI -c huggingface transformers --yes
+      environment:
+        PATH: "/opt/miniconda3/envs/Intel_AI/bin:{{ ansible_env.PATH }}"
+        WORKSPACE: "{{ workspace_path }}"
+    
     - name: Get CPU architecture information
       shell: lscpu | grep 'am'
       register: cpu_info
