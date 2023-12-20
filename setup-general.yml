@@ -135,7 +135,7 @@
             chdir: "/tmp/gperftools-2.7.90"
             target: install
 
-    - name: Install 'transformers' package via Conda
+    - name: Install 'transformers' package from hugging face channel via Conda
       become: yes
       shell: /opt/miniconda3/bin/conda install -n Intel_AI -c huggingface transformers --yes
       environment:

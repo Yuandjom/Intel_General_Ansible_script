@@ -1,3 +1,9 @@
+# Intel General AI Environment Setup
+
+This repository hosts an Ansible playbook, `setup-general.yml`, meticulously crafted to streamline the establishment of a general AI environment, specifically tailored for Intel architectures. This playbook facilitates the installation of Miniconda, orchestrates the creation of a Conda environment named `Intel_AI`, and manages the deployment of a suite of packages and tools, including TensorFlow, PyTorch, and various Intel extensions.
+
+For more insights into Intel's AI tools and their optimization capabilities, visit the [Intel AI Tools Selector](https://www.intel.com/content/www/us/en/developer/tools/oneapi/ai-tools-selector.html).
+
 # Table of Contents
 1. [Intel General AI Environment Setup](#intel-general-ai-environment-setup)
 2. [Prerequisites](#prerequisites)
@@ -10,14 +16,6 @@
 6. [Components Installed](#components-installed)
 7. [Conda Environment](#conda-environment)
 8. [Notes](#notes)
-
-# Intel General AI Environment Setup
-
-This repository hosts an Ansible playbook, `setup-general.yml`, meticulously crafted to streamline the establishment of a general AI environment, specifically tailored for Intel architectures. This playbook facilitates the installation of Miniconda, orchestrates the creation of a Conda environment named `Intel_AI`, and manages the deployment of a suite of packages and tools, including TensorFlow, PyTorch, and various Intel extensions.
-
-For more insights into Intel's AI tools and their optimization capabilities, visit the [Intel AI Tools Selector](https://www.intel.com/content/www/us/en/developer/tools/oneapi/ai-tools-selector.html).
-
-
 
 ## Prerequisites
 
@@ -43,16 +41,18 @@ ssh-keygen -t rsa -b 4096
 When prompted, you can specify the file path or press Enter to use the default location. It's recommended to set a secure passphrase for the key.
 
 ### Copy the SSH Public Key to the Remote Server
-Next, copy your SSH public key to the remote server where the playbook will be executed. Replace ```your_username``` with your actual username on the remote server and `192.168.2.60` with the server's IP address.
+Next, copy your SSH public key to the remote server where the playbook will be executed. Replace ```username``` with your actual username on the remote server and `host-address` with the server's IP address.
 
 ```bash
-ssh-copy-id -i ~/.ssh/id_rsa.pub your_username@192.168.2.60
+# eg. ssh-copy-id -i ~/.ssh/id_rsa.pub your_username@192.168.2.60
+ssh-copy-id -i ~/.ssh/id_rsa.pub [username]@[host-address]
 ```
 
 ### Test the SSH Connection
 To ensure that the SSH key-based authentication is set up correctly, test the connection to the remote server:
 ```bash
-ssh your_username@192.168.2.60
+# eg. ssh test@192.168.2.60
+ssh [username]@[host-address]
 ```
 After setting up the SSH key-based authentication, you can proceed with running the Ansible playbook as described in the Running the Playbook section.
 
@@ -73,8 +73,8 @@ To run the playbook, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/YOUR_GITHUB/YOUR_REPOSITORY.git
-   cd YOUR_REPOSITORY
+   git clone https://github.com/Yuandjom/Intel_General_Ansible_script.git
+   cd Intel_General_Ansible_script
    ```
    
 Customize the variables in setup-general.yml as needed.
@@ -91,6 +91,7 @@ The playbook performs the following tasks:
 - Installs Miniconda and sets it up.
 - Copies the Conda environment file and creates a Conda environment.
 - Installs gperftools and configures it.
+- Installs transformers from huggingface channel 
 - Gathers CPU architecture information.
 - Checks versions of PyTorch and Intel Extension for PyTorch.
 
